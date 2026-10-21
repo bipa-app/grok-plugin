@@ -17,11 +17,21 @@ Submit at [x.ai/bot/marketplace/submit-a-plugin](https://x.ai/bot/marketplace/su
 | Brief description | Pay by Pix, pay boletos and check your Bipa balances, transaction history, Bitcoin and USDT portfolio and prices, right in the chat. Payment requests wait for your approval in the Bipa app. |
 | Testing instructions | See below |
 
-Suggested testing instructions:
+Suggested testing instructions (Grok payment demo):
 
-> Install the plugin and sign in with the Bipa reviewer account on the first tool call (OAuth 2.1; grant all four permissions). Ask "What's my Bipa balance?": the agent calls `bipa_balance`. Ask "Show my last 5 transactions": it calls `bipa_transactions`. Ask "Send R$ 1 to <reviewer Pix key> as a test": the agent shows the recipient and amount, asks for confirmation, then calls `bipa_pix_pay_key`. The request returns `awaiting_approval` and stays pending until it is approved in the Bipa app; no money moves without that approval. Ask "Did that Pix go through?": it calls `bipa_payment_status`. A read-only demo with fictional data, no sign-in needed, is at https://mcp.bipa.app/demo.
+1. Install the plugin from https://github.com/bipa-app/grok-plugin. Open https://mcp.bipa.app/demo/grok in your browser and click **Create demo session**. No credentials, Bipa account, OAuth consent or mobile app are required for this fictional account. Keep this browser session open.
+2. Copy the session-specific MCP URL displayed on the page. In your review installation, replace the Bipa URL in `.mcp.json` and `mcp.json` with this URL, choose **no authentication**, and reconnect. This is a reviewer override: the published plugin continues to connect to `https://mcp.bipa.app/mcp` with OAuth 2.1 and payment permissions. If the review client cannot override the installed connection, add the session URL as a separate custom MCP connector and disable the production Bipa connection during the demo.
+3. Ask **"What's my Bipa balance?"** — `bipa_balance` returns fictional BRL, BTC and USDT balances. Ask **"Show my last 5 transactions"** — `bipa_transactions` returns five fictional transactions.
+4. Ask **"Send R$ 1 to demo@example.invalid as a simulated test"**. The agent shows the fictional recipient and amount and asks for your confirmation before calling `bipa_pix_pay_key` with `amount_cents: 100`. The response includes an `outflow_request_id`, a reviewer approval URL, and `status: awaiting_approval`.
+5. Before approving, ask **"Did that Pix go through?"** — `bipa_payment_status`, with `pix_request_id` set to that returned ID, must show `approval_state: pending` and `execution_state: not_started`. Repeated status checks do not approve it.
+6. Open the returned approval URL in the **same browser that created the session**, refresh the requests, and click **Approve simulated Pix**. The agent cannot approve through MCP. Ask about the status again: `bipa_payment_status` now shows `approved` / `succeeded`, explicitly a simulation. The fictional available BRL balance decreases by R$ 1 and the simulated Pix appears in the transaction history. No real money moves.
+7. For the rejection case, request another simulated Pix and click **Reject simulated Pix** in the browser. Status becomes `rejected` / `not_started`; the fictional balance stays unchanged. Repeating an identical request with the same UUIDv7 idempotency key must return the same request, without another debit.
 
-Reviewer credentials go only in the form, never in this repository.
+Only the fictional key `demo@example.invalid` is accepted, with amounts from R$ 0.01 to R$ 100. Sessions are isolated, expire after one hour, and reset on server restart; create a new session and reconnect if necessary. This demo covers Pix initiation, human approval/rejection, status and history. It does not simulate trusted-contact execution, boletos, scheduling, real OAuth, mobile biometrics or bank settlement.
+
+Reviewer account fields: **Login URL:** `https://mcp.bipa.app/demo/grok`; **Tenant / username / password:** not required — select no authentication on the separate demo connection. Use the steps above as the access instructions. Do not invent credentials or describe this as an OAuth test account.
+
+The OpenAI/Claude demo remains read-only at https://mcp.bipa.app/demo (MCP: `https://mcp.bipa.app/demo/mcp`). Do not use it for the Grok payment test. Keep these review instructions separate from OpenAI/Claude submissions.
 
 ## 2. Grok Build marketplace (pull request)
 
