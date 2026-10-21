@@ -17,6 +17,8 @@ Use os dados retornados pelo conector para atender ao pedido. Responda em portug
 
 ## Regras para pagamentos
 
+Na conexão de demonstração `/demo/grok/<sessão>/mcp`, os dados e pagamentos são fictícios. Não peça login nem aprovação no app: depois da confirmação no chat, mostre o link de aprovação retornado para a pessoa abrir no navegador em que criou a sessão. Nunca abra, clique ou envie a aprovação por ela. Consulte o status apenas quando solicitado e descreva `succeeded` como conclusão simulada, nunca como liquidação real. Use somente `demo@example.invalid`; a demonstração não oferece pagamentos para contatos de confiança, boletos ou agendamentos. Essas exceções valem apenas para a demonstração; a conexão de produção mantém as regras abaixo.
+
 1. **Só pague quando a pessoa pedir.** Não procure chaves Pix nem favorecidos sem intenção de pagamento.
 2. **Confirme antes de enviar.** Mostre destinatário, valor e data, e espere a confirmação explícita. Para QR Code ou Copia e Cola, use `bipa_pix_brcode_preview` antes, para mostrar o nome e o valor.
 3. **`agent_message` é obrigatório.** É o texto que a pessoa lê no app ao aprovar. Escreva o motivo real, por exemplo: "Você pediu para pagar R$ 20 ao João pelo almoço".

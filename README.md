@@ -17,7 +17,7 @@ Pay and check your money at Bipa from Grok Bot, Grok Build and Cursor. Send Pix 
 - **Trusted contacts are the one exception.** If you granted `payments:execute_trusted`, the agent can pay contacts you have already marked as trusted in the app, within the limits you set there, without a new approval. The agent can't create trusted contacts, Pix keys or change limits.
 - **No trading.** The plugin can't buy or sell crypto.
 
-To try it without an account, a demo with a fictional account and read-only tools needs no sign-in: <https://mcp.bipa.app/demo>.
+To review the payment flow without a real account, open the [Grok payment demo](https://mcp.bipa.app/demo/grok). Create an isolated fictional session, connect its MCP URL without authentication, request a simulated Pix, and approve or reject it in your browser. No real money moves. Follow the [reviewer instructions](PUBLISHING.md) to configure the separate demo connection. The [OpenAI/Claude demo](https://mcp.bipa.app/demo) remains read-only.
 
 ## What's inside
 
@@ -51,6 +51,8 @@ Experimente pedir:
 Ao conectar, você entra com a sua conta Bipa e escolhe o que o agente pode fazer: consultar dados financeiros, consultar dados da conta e chaves, pedir pagamentos e pagar contatos de confiança. Pedidos de Pix e boleto ficam pendentes até você aprovar com biometria no app da Bipa. A exceção são os contatos de confiança que você já cadastrou no app: com essa permissão, o agente paga sem nova aprovação, dentro dos limites que você definiu. O agente não compra nem vende cripto, não cria contatos de confiança nem chaves Pix e não altera limites.
 
 O plugin conecta apenas ao servidor da Bipa (`https://mcp.bipa.app/mcp`) e não executa código local, hooks nem scripts.
+
+Para testar sem conta real, use a [demonstração de pagamentos do Grok](https://mcp.bipa.app/demo/grok): crie uma sessão fictícia, conecte a URL MCP exibida sem autenticação e aprove ou rejeite o Pix simulado no navegador. Nenhum dinheiro real é movimentado. Veja as [instruções de revisão](PUBLISHING.md). A demonstração de OpenAI e Claude continua somente leitura.
 
 ## License
 
