@@ -1,0 +1,20 @@
+{
+  "name": "bipa",
+  "version": "0.1.0",
+  "description": "Pay by Pix, pay boletos and check your Bipa balances, transaction history, Bitcoin and USDT portfolio and prices, right in the chat. Payment requests wait for your approval in the Bipa app.",
+  "author": {
+    "name": "Bipa",
+    "url": "https://bipa.app"
+  },
+  "homepage": "https://agents.bipa.app/docs/grok",
+  "repository": "https://github.com/bipa-app/grok-plugin",
+  "license": "MIT",
+  "keywords": [
+    "bipa",
+    "bipa pix",
+    "bipa app",
+    "bipa boleto",
+    "bipa bitcoin"
+  ],
+  "logo": "assets/bipa-logo.png"
+}

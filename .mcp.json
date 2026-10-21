@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "bipa": {
+      "type": "http",
+      "url": "https://mcp.bipa.app/mcp"
+    }
+  }
+}
