@@ -17,7 +17,7 @@ Pay and check your money at Bipa from Grok Bot, Grok Build and Cursor. Send Pix 
 - **Trusted contacts are the one exception.** If you granted `payments:execute_trusted`, the agent can pay contacts you have already marked as trusted in the app, within the limits you set there, without a new approval. The agent can't create trusted contacts, Pix keys or change limits.
 - **No trading.** The plugin can't buy or sell crypto.
 
-Reviewers can use the installed plugin's normal OAuth connection with the private fictional-account credentials after the reviewer gateway is deployed. Follow [PUBLISHING.md](PUBLISHING.md); keep `/mcp` and OAuth unchanged. The [public Grok demo](https://mcp.bipa.app/demo/grok) remains a separate development sandbox. OpenAI and Claude use the read-only connection.
+After the reviewer gateway is deployed, reviewers first sign in at the private reviewer URL, then connect the installed plugin in the same browser within ten minutes. Follow [PUBLISHING.md](PUBLISHING.md); keep `/mcp` and OAuth unchanged. The [public Grok demo](https://mcp.bipa.app/demo/grok) remains a separate development sandbox. OpenAI and Claude use the read-only connection.
 
 ## What's inside
 
@@ -52,7 +52,7 @@ Ao conectar, você entra com a sua conta Bipa e escolhe o que o agente pode faze
 
 O plugin conecta apenas ao servidor da Bipa (`https://mcp.bipa.app/mcp`) e não executa código local, hooks nem scripts.
 
-Para revisão, após a implantação do fluxo, use as credenciais privadas da conta fictícia na janela OAuth do plugin instalado. Mantenha `/mcp` e a autenticação. Veja as [instruções de revisão](PUBLISHING.md). A [demonstração pública](https://mcp.bipa.app/demo/grok) continua disponível para desenvolvimento. OpenAI e Claude permanecem somente leitura.
+Para revisão, após a implantação do fluxo, entre primeiro na página privada de revisão com as credenciais fornecidas e conecte o plugin no mesmo navegador em até dez minutos. Mantenha `/mcp` e a autenticação. Veja as [instruções de revisão](PUBLISHING.md). A [demonstração pública](https://mcp.bipa.app/demo/grok) continua disponível para desenvolvimento. OpenAI e Claude permanecem somente leitura.
 
 ## License
 
