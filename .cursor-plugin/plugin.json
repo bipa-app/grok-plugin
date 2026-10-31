@@ -1,7 +1,7 @@
 {
   "name": "bipa",
-  "version": "0.1.0",
-  "description": "Pay by Pix, pay boletos and check your Bipa balances, transaction history, Bitcoin and USDT portfolio and prices, right in the chat. Payment requests wait for your approval in the Bipa app.",
+  "version": "0.1.1",
+  "description": "Pay by Pix, pay boletos and check your Bipa balances, transaction history, Bitcoin and USDT portfolio and prices, right in the chat. Payment requests wait for your approval in the Bipa app; preauthorized trusted-contact Pix is the exception.",
   "author": {
     "name": "Bipa",
     "url": "https://bipa.app"
