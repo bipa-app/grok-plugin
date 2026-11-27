@@ -1,6 +1,6 @@
 {
   "name": "bipa",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Bipa account, balances, portfolio, Pix receiving and permissioned payment requests.",
   "mcpServers": {
     "bipa": {
