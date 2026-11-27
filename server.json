@@ -1,0 +1,27 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.bipa-app/bipa",
+  "title": "Bipa",
+  "description": "Bipa account, balances, portfolio, Pix receiving and permissioned payment requests.",
+  "version": "0.1.41",
+  "repository": {
+    "url": "https://github.com/bipa-app/grok-plugin",
+    "source": "github"
+  },
+  "websiteUrl": "https://agents.bipa.app/docs/claude",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/bipa-app/grok-plugin/main/assets/bipa-logo.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "1024x1024"
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.bipa.app/mcp"
+    }
+  ]
+}
