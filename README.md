@@ -2,6 +2,14 @@
 
 Pay and check your money at Bipa from Grok Bot, Grok Build and Cursor. Send Pix to a key, a saved recipient, a Bipa tag or a QR code, pay boletos and DDA bills, and see your balance in reais, Bitcoin and USDT, your transaction history, your portfolio results and Bipa's prices.
 
+## Gemini CLI
+
+```sh
+gemini extensions install https://github.com/bipa-app/grok-plugin
+```
+
+The repository also includes metadata for the official MCP Registry. A directory entry does not establish approval or client-specific OAuth validation.
+
 ## Try asking
 
 - "What's my Bipa balance?"
@@ -17,7 +25,7 @@ Pay and check your money at Bipa from Grok Bot, Grok Build and Cursor. Send Pix 
 - **Trusted contacts are the one exception.** If you granted `payments:execute_trusted`, the agent can pay contacts you have already marked as trusted in the app, within the limits you set there, without a new approval. The agent can't create trusted contacts, Pix keys or change limits.
 - **No trading.** The plugin can't buy or sell crypto.
 
-After the reviewer gateway is deployed, reviewers first sign in at the private reviewer URL, then connect the installed plugin in the same browser within ten minutes. Follow [PUBLISHING.md](PUBLISHING.md); keep `/mcp` and OAuth unchanged. The [public Grok demo](https://mcp.bipa.app/demo/grok) remains a separate development sandbox. OpenAI and Claude use the read-only connection.
+Reviewers first sign in at the private reviewer URL, then connect the installed plugin in the same browser within ten minutes. Follow [PUBLISHING.md](PUBLISHING.md); keep `/mcp` and OAuth unchanged. The [public Grok demo](https://mcp.bipa.app/demo/grok) remains a separate development sandbox. OpenAI and Claude also have separately submitted personal and Business packages; their directory review status does not establish approval here.
 
 ## What's inside
 
@@ -52,7 +60,11 @@ Ao conectar, você entra com a sua conta Bipa e escolhe o que o agente pode faze
 
 O plugin conecta apenas ao servidor da Bipa (`https://mcp.bipa.app/mcp`) e não executa código local, hooks nem scripts.
 
-Para revisão, após a implantação do fluxo, entre primeiro na página privada de revisão com as credenciais fornecidas e conecte o plugin no mesmo navegador em até dez minutos. Mantenha `/mcp` e a autenticação. Veja as [instruções de revisão](PUBLISHING.md). A [demonstração pública](https://mcp.bipa.app/demo/grok) continua disponível para desenvolvimento. OpenAI e Claude permanecem somente leitura.
+Para revisão, entre primeiro na página privada de revisão com as credenciais fornecidas e conecte o plugin no mesmo navegador em até dez minutos. Mantenha `/mcp` e a autenticação. Veja as [instruções de revisão](PUBLISHING.md). A [demonstração pública](https://mcp.bipa.app/demo/grok) continua disponível para desenvolvimento. OpenAI e Claude também têm pacotes pessoal e Business separados em revisão; isso não confirma aprovação neste diretório.
+
+## Validation
+
+Hosted fictional verification exercised 61 personal tools with 98 passing assertions. No real account or payment rails were used. A fresh OAuth connection in each target Grok/Grok Bot/Cursor/Gemini CLI client remains unverified; hosted tests are not a substitute for that check. The skill is synchronized from `bipa-app/claude-plugin` at revision `9f462772021a295febc2f714178c27417204ff4a`.
 
 ## License
 

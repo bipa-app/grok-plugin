@@ -1,0 +1,10 @@
+{
+  "name": "bipa",
+  "version": "0.2.0",
+  "description": "Bipa account, balances, portfolio, Pix receiving and permissioned payment requests.",
+  "mcpServers": {
+    "bipa": {
+      "httpUrl": "https://mcp.bipa.app/mcp"
+    }
+  }
+}

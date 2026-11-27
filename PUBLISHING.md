@@ -19,7 +19,7 @@ Submit at [x.ai/bot/marketplace/submit-a-plugin](https://x.ai/bot/marketplace/su
 
 Suggested testing instructions (installed plugin with fictional reviewer OAuth):
 
-Deployment gate: use these instructions only after the companion CLI change is deployed and a fresh login is verified in the target Grok/Grok Bot client. Do not attest that in-app testing passed based only on local tests.
+Validation gate: hosted fictional testing has been completed, but a fresh OAuth connection in each target Grok/Grok Bot/Cursor client must still be verified. Do not attest that target-client testing passed based only on local or hosted tests.
 
 1. Install the plugin from https://github.com/bipa-app/grok-plugin. Keep `https://mcp.bipa.app/mcp` and OAuth enabled. First open https://mcp.bipa.app/oauth/reviewer and sign in with the private reviewer credentials supplied with the submission. Return to Grok and connect Bipa in the same browser within ten minutes, then confirm **Connect fictional account**. Normal connections go directly to Bipa's customer login; visiting the private URL alone does not enable the demo. No mobile app, SMS, email verification or real account is required. Keep this browser available for simulated payment approvals.
 2. Ask **"What's my Bipa balance?"** — `bipa_balance` shows fictional BRL, BTC and USDT balances (R$ 2,450.25 available, R$ 5,000 savings, 0.015 BTC and 250 USDT). Ask **"Show my last 5 transactions"** — `bipa_transactions` returns fictional history.
@@ -36,7 +36,7 @@ The connection requests `financial:read`, `account:read`, `payments:request` and
 
 Reviewer access tokens last one hour and refresh automatically for up to 24 hours. Refresh preserves simulated state. Before each new connection, sign in at the private reviewer URL again; its browser permission is consumed by one connection or expires after ten minutes. Only the fictional Pix key `demo@example.invalid`, trusted contact ID 1 and the 47-zero boleto are accepted; Pix amounts are R$ 0.01–100. The demo does not cover scheduling, other payment entry methods, mobile biometrics, real settlement or live prices.
 
-The separate public https://mcp.bipa.app/demo/grok remains a development sandbox. Do not replace the installed MCP URL or switch off OAuth for review: that would skip the sign-in path under review. OpenAI and Claude remain read-only at `/readonly/mcp`, with their separate `/demo/mcp` sandbox.
+The separate public https://mcp.bipa.app/demo/grok remains a development sandbox. Do not replace the installed MCP URL or switch off OAuth for review: that would skip the sign-in path under review. The legacy `/readonly/mcp` resource remains read-only. New full-scope personal and Business packages have separate provider reviews.
 
 ## 2. Grok Build marketplace (pull request)
 
@@ -77,3 +77,9 @@ The catalog lives in [xai-org/plugin-marketplace](https://github.com/xai-org/plu
 4. Open the PR, fill in the template, and wait for CI and code-owner review.
 
 To ship an update later, push to `main` here, then open a PR that bumps the `sha` and regenerates the index. Do not open a second entry.
+
+## MCP Registry and Gemini CLI
+
+`server.json` describes the remote OAuth endpoint for the official MCP Registry. The manual **Publish to MCP Registry** workflow runs only on `main`, verifies a pinned publisher release, validates the metadata and publishes using GitHub OIDC. No personal token is stored. A new registry revision requires a new `version`.
+
+Gemini CLI discovers public repositories tagged `gemini-cli-extension` with a root `gemini-extension.json`. Adding the topic queues crawler discovery; confirm the gallery result separately.
